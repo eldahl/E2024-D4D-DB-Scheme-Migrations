@@ -39,7 +39,12 @@ public class ActivityDBContext : DbContext
         modelBuilder.Entity<ActivityCategory>(entity =>
         {
             entity.HasKey(p => p.catName);
-            
+        });
+        modelBuilder.Entity<Users>(entity =>
+        {
+            entity.HasKey(p => p.id);
+            entity.Property(p => p.userName);
+            entity.Property(p => p.email);
         });
     }
 }
@@ -82,3 +87,18 @@ public partial class ActivityDuration
     public TimeSpan durationTime { get; set; }
 }
 
+public partial class Users
+{
+    [Key]
+    [Required]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int id { get; set; }
+
+    [Required]
+    [Column(TypeName = "varchar(50)")]
+    public string userName { get; set; }
+
+    [Required]
+    [Column(TypeName = "varchar(100)")]
+    public string email { get; set; }
+}

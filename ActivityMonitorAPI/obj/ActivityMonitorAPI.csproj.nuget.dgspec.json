@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\45306\\Desktop\\Studie\\Databases for Developers\\W38 - Compulsory Assignment - Migrating Databases\\manuelDBM\\ActivityMonitorAPI\\ActivityMonitorAPI.csproj": {}
+    "/home/eldahl/DataGripProjects/manuelDBM/ActivityMonitorAPI/ActivityMonitorAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\45306\\Desktop\\Studie\\Databases for Developers\\W38 - Compulsory Assignment - Migrating Databases\\manuelDBM\\ActivityMonitorAPI\\ActivityMonitorAPI.csproj": {
+    "/home/eldahl/DataGripProjects/manuelDBM/ActivityMonitorAPI/ActivityMonitorAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\45306\\Desktop\\Studie\\Databases for Developers\\W38 - Compulsory Assignment - Migrating Databases\\manuelDBM\\ActivityMonitorAPI\\ActivityMonitorAPI.csproj",
+        "projectUniqueName": "/home/eldahl/DataGripProjects/manuelDBM/ActivityMonitorAPI/ActivityMonitorAPI.csproj",
         "projectName": "ActivityMonitorAPI",
-        "projectPath": "C:\\Users\\45306\\Desktop\\Studie\\Databases for Developers\\W38 - Compulsory Assignment - Migrating Databases\\manuelDBM\\ActivityMonitorAPI\\ActivityMonitorAPI.csproj",
-        "packagesPath": "C:\\Users\\45306\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\45306\\Desktop\\Studie\\Databases for Developers\\W38 - Compulsory Assignment - Migrating Databases\\manuelDBM\\ActivityMonitorAPI\\obj\\",
+        "projectPath": "/home/eldahl/DataGripProjects/manuelDBM/ActivityMonitorAPI/ActivityMonitorAPI.csproj",
+        "packagesPath": "/home/eldahl/.nuget/packages/",
+        "outputPath": "/home/eldahl/DataGripProjects/manuelDBM/ActivityMonitorAPI/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\45306\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/eldahl/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -85,6 +72,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
