@@ -1,6 +1,6 @@
 # Documentation for manual migrations
-The database structure is for an activity monitor application.
-It consists of an Activity table, with 
+The database structure is for an activity monitor application.  
+It consists of an Activity table, with activity categories and activity duration.
 
 # Instructions for manual migrations
 Run Run1-Run3 scripts to run all migrations
