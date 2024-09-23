@@ -4,10 +4,16 @@ go
 alter table ActivityDuration
 add constraint FK_ActivityDuration_ActivityId
 foreign key (activityId) references Activity(id);
+GO
 
 alter table Activity
-add categoryName varchar(100) not null,
-foreign key (categoryName) references ActivityCategory(catName);
+add categoryName varchar(100) not null
+    CONSTRAINT categoryNameDefault default 'uncategorized',
+    CONSTRAINT FK_Activity_categoryName
+    foreign key (categoryName) references ActivityCategory(catName);
+GO
+
+
 
 INSERT INTO ActivityCategory (catName) values ('Work');
 INSERT INTO ActivityCategory (catName) values ('Leisure');
