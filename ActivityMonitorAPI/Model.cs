@@ -6,79 +6,84 @@ namespace ActivityMonitorAPI;
 
 public class ActivityDBContext : DbContext
 {
+    // DbSets of the data models we want to store in the database
     public DbSet<Activity> Activities { get; set; }
     public DbSet<ActivityDuration> ActivityCategories { get; set; }
     
+    // Constructor
     public ActivityDBContext(DbContextOptions<ActivityDBContext> options) : base(options)
     {
     }
 
+    // Data model definition method
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Activity table
         modelBuilder.Entity<Activity>(entity =>
         {
+            // Primary Key
             entity.HasKey(p => p.id);
+            
+            // Columns
             entity.Property(p => p.nameActivity);
             entity.Property(p => p.activityDescription);
             entity.Property(p => p.categoryName);
             
+            // Foreign key constraint
             entity.HasOne(e => e.activityCategory)
                 .WithOne(e => e.activity)
                 .HasForeignKey<Activity>(a => a.categoryName)
                 .HasConstraintName("FK_activityCategory");
         });
+        
+        // ActivityDuration table
         modelBuilder.Entity<ActivityDuration>(entity =>
         { 
+            // Primary Key
             entity.HasKey(p => p.id);
+
+            // Columns
             entity.Property(p => p.activityId);
             entity.Property(p => p.durationTime);
             entity.Property(p => p.startTime);
             
+            // Foreign key constraint
             entity.HasOne(p => p.activity)
                 .WithOne(e => e.activityDuration)
                 .HasForeignKey<ActivityDuration>(p => p.activityId)
                 .HasConstraintName("FK_ActivityDuration_Activity");
         });
         
+        // ActivityCategory table
         modelBuilder.Entity<ActivityCategory>(entity =>
         {
+            // Primary Key
             entity.HasKey(p => p.catName);
         });
+        
+        // Users table
         modelBuilder.Entity<Users>(entity =>
         {
-            entity.HasKey(p => p.id);
+            // Primary Key
+            entity.HasKey(p => p.id); 
+            
+            // Columns
             entity.Property(p => p.userName);
             entity.Property(p => p.email);
         });
 
+        // ActivityCategory data insertion
         modelBuilder.Entity<ActivityCategory>().HasData(new List<ActivityCategory>()
         {
-            new ActivityCategory()
-            {
-                catName = "Work"
-            },
-            new ActivityCategory()
-            {
-                catName = "Leisure"
-            },
-            new ActivityCategory()
-            {
-                catName = "Research"
-            },
-            new ActivityCategory()
-            {
-                catName = "Afk"
-            },
-            new ActivityCategory()
-            {
-                catName = "Meeting"
-            },
-            new ActivityCategory()
-            {
-                catName = "Gaming"
-            }
+            new ActivityCategory() { catName = "Work" },
+            new ActivityCategory() { catName = "Leisure" },
+            new ActivityCategory() { catName = "Research" },
+            new ActivityCategory() { catName = "Afk" },
+            new ActivityCategory() { catName = "Meeting" },
+            new ActivityCategory() { catName = "Gaming" }
         });
-
+    
+        // Activity data insertion
         modelBuilder.Entity<Activity>().HasData(new List<Activity>()
         {
             new Activity()
@@ -125,6 +130,7 @@ public class ActivityDBContext : DbContext
             },
         });
 
+        // ActivityDuration data insertion
         modelBuilder.Entity<ActivityDuration>().HasData(new List<ActivityDuration>()
         {
             new ActivityDuration()
@@ -171,6 +177,7 @@ public class ActivityDBContext : DbContext
             },
         });
 
+        // Users data insertion
         modelBuilder.Entity<Users>().HasData(new List<Users>()
         {
             new Users()
@@ -207,6 +214,7 @@ public class ActivityDBContext : DbContext
     }
 }
 
+// Activity Data model
 public partial class Activity
 {
     [Required]
@@ -229,6 +237,7 @@ public partial class Activity
     public virtual ActivityCategory activityCategory { get; set; }
 }
 
+// ActivityCategory Data model
 public partial class ActivityCategory
 {
     [Required]
@@ -238,6 +247,7 @@ public partial class ActivityCategory
     public virtual Activity activity{ get; set; }
 }
 
+// ActivityDuration Data model
 public partial class ActivityDuration
 {
     
@@ -256,6 +266,7 @@ public partial class ActivityDuration
     public Activity activity{ get; set; }
 }
 
+// Users Data model
 public partial class Users
 {
     [Key]
