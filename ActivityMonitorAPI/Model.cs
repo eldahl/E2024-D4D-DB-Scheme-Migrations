@@ -4,20 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ActivityMonitorAPI;
 
-
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-
 public class ActivityDBContext : DbContext
 {
-    public string DbPath { get; }
     public DbSet<Activity> Activities { get; set; }
     public DbSet<ActivityDuration> ActivityCategories { get; set; }
     
     public ActivityDBContext(DbContextOptions<ActivityDBContext> options) : base(options)
     {
-        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,7 +28,7 @@ public class ActivityDBContext : DbContext
                 .HasConstraintName("FK_activityCategory");
         });
         modelBuilder.Entity<ActivityDuration>(entity =>
-        {
+        { 
             entity.HasKey(p => p.id);
             entity.Property(p => p.activityId);
             entity.Property(p => p.durationTime);
