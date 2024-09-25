@@ -1,6 +1,8 @@
+-- Use database
 use ActivityDB
 go
 
+-- Create table
 create table Users
 (
 	id int not null IDENTITY(1, 1),
